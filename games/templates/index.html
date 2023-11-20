@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Library CS235</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type='image/x-icon' href="../static/images/logo.png">
+    <!-- meta description will help with SEO and is often displayed in those results-->
+    <meta name="description" content="Explore the CS235 Game Library and discover a wide range of games. Browse, search, and find your favorite games by genre.">
+</head>
+
+{% include 'include/sidebar.html' %}
+{% include 'include/header.html' %}
+
+<body>
+<div id="main">
+    <h2>Introduction:</h2>
+    <p>Welcome to the CS235 Game library! Read the following sections to learn what you can do on this website!</p>
+    <h2>Browse Games</h2>
+    <p>You can browse and filter games in our main browsing section!</p>
+    <a class="linkButton" href="{{ url_for('games.index') }}">Browse Games</a>
+    <h2>Search Games</h2>
+    <p>You can also search games! Enter the game or series of games you are looking for here to find matching results!</p>
+    {% include 'include/searchBar.html' %}
+    <h2>Browse Genres</h2>
+    <p>Using our sidebar, you can browse games by your favourite genre. Simply click "Browse genres" to open the dropdown!</p>
+    <h2>Credits</h2>
+    <p>Created by Eli Chandler (echa791), Max Couling (mcou258), Joy Zhu (xzhu995)</p>
+    <a href="{{ url_for('home.attributions') }}" target="_blank">Image credits</a>
+
+
+</div>
+
+
+</body>
+</html>

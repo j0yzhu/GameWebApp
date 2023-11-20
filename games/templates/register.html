@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Library CS235</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type='image/x-icon' href="../static/images/logo.png">
+    <!-- meta description will help with SEO and is often displayed in those results-->
+    <meta name="description" content="Explore the CS235 Game Library and discover a wide range of games. Browse, search, and find your favorite games by genre.">
+</head>
+
+{% include 'include/sidebar.html' %}
+{% include 'include/header.html' %}
+{% include 'include/error_popup.html' %}
+
+<body>
+<main id="main">
+    <div class="formwrapper">
+        <h1 class="title">{{ title }}</h1>
+        <form method="POST" action="{{ handler_url }}">
+            {{ form.csrf_token }} <!-- Need to include this token - Flask WTForms requires it. -->
+
+            <div class="form-field">
+                {{ form.user_name.label }}
+                {{ form.user_name }}
+                {% if form.user_name.errors or user_name_error_message is not none %}
+                    <ul class="errors">
+                        {% if user_name_error_message is not none %}
+                            <li>{{ user_name_error_message }}</li>
+                        {% endif %}
+                        {% for error in form.user_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                {{ form.password.label }}
+                {{ form.password }}
+                {% if form.password.errors or password_error_message is not none %}
+                    <ul class="errors">
+                        {% if password_error_message is not none %}
+                            <li>{{ password_error_message }}</li>
+                        {% endif %}
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                {{ form.confirm_password.label }}
+                {{ form.confirm_password }}
+                {% if form.confirm_password.errors or confirm_password_error_message is not none %}
+                    <ul class="errors">
+                        {% if confirm_password_error_message is not none %}
+                            <li>{{ confirm_password_error_message }}</li>
+                        {% endif %}
+                        {% for error in form.confirm_password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            {{ form.submit }}
+        </form>
+    </div>
+</main>
+
+
+
+</body>
+</html>

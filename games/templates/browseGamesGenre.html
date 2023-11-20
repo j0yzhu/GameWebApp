@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse by Genre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type='image/x-icon' href="/static/images/logo.png">
+</head>
+
+{% include 'include/sidebar.html' %}
+{% include 'include/header.html' %}
+
+<body>
+
+<div id="main">
+    {% include 'include/gameContainer.html' %}
+    {% include 'include/paginationButtons.html' %}
+</div>
+
+</body>

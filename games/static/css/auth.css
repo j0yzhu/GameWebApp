@@ -1,0 +1,67 @@
+    .formwrapper {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #25243f;
+    }
+
+    .form-field {
+        margin-bottom: 10px;
+    }
+
+    .form-field label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-field input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .errors {
+        color: #f00;
+        margin-top: 5px;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .form-field:last-child {
+        margin-bottom: 0;
+    }
+
+    .form-field.confirm-password {
+        display: none; /* Initially hide confirm password field */
+    }
+
+    /* Style for the Login and Register buttons in the header */
+    .login-button,
+    .register-button {
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        color: white;
+        background-color: #1b263b; /* Use one of your color options */
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .login-button:hover,
+    .register-button:hover {
+        background-color: #415a77; /* Change color on hover */
+        transform: scale(1.05); /* Add a subtle hover effect */
+    }
+    .header-buttons {
+        display: flex;
+        gap: 10px;
+    }

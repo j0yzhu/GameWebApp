@@ -1,0 +1,21 @@
+<div class="searchBarContainer">
+   <form class="searchBar" method="get" action="{{ url_for('games.index') }}">
+      <!-- Content for filter bar-->
+       <label for="sort_by">Sort by:</label>
+       <select name="sort_by" id="sort_by">
+         <option value="default">Default</option>
+         <option value="title">Title</option>
+         <option value="release_date">Release Date</option>
+      </select>
+
+       <div class="reverseOrder">
+         <input type="checkbox" id="ascending" name="ascending" value="true">
+         <label for="ascending">Reverse order</label>
+      </div>
+
+       <div class="sortButton">
+         <input type="submit" value="Sort">
+      </div>
+
+   </form>
+</div>

@@ -1,0 +1,14 @@
+<body>
+<div class="gameContainer">
+        {%  for game in page %}
+            <a href="{{  url_for('games.game', game_id=game.game_id) }}" class="gameCard">
+                <h2>{{ game.title }}</h2>
+                <div class="imageContainer">
+                    <img src="{{ game.image_url }}" alt="Game Image">
+                </div>
+                <h3>{{ 'Free' if game.price == 0 else '$' + game.price|string }}</h3>
+                <h3>{{ game.release_date }}</h3>
+            </a>
+        {%  endfor %}
+</div>
+</body>

@@ -1,0 +1,106 @@
+/*
+colors:
+e0e1dd
+778da9
+415a77
+1b263b
+0d1b2a
+ */
+
+@import 'variables.css';
+@import "header.css";
+@import "sidebar.css";
+@import 'game_card.css';
+@import 'game_description.css';
+@import 'search_bar.css';
+@import 'auth.css';
+@import 'error.css';
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-4);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-1);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#main {
+    position: absolute;
+    top: var(--header-height);
+    left: var(--sidebar-width);  /* adjusted this */
+    width: calc(100% - var(--sidebar-width));
+    height: calc(100% - 92px);
+    /*overflow-y: hidden;*/
+    overflow-x: hidden;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+}
+
+.paginationButtonContainer {
+    text-align: center;
+}
+
+/*2x centered */
+.paginationButton {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    border-radius: 5px;
+    border: 1px solid var(--color-1);
+    margin: auto;
+    width: 80px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.paginationButton:hover {
+    background-color: var(--color-1);
+    color: var(--color-4);
+}
+
+.linkButton {
+    height: 30px;
+    width: 50px;
+    padding: 10px 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-2); /* For cohesion with the hover state of gameCard */
+    color: var(--color-1);
+    font-size: 16px;
+    cursor: pointer; /* To show it's clickable */
+    transition: 0.3s;
+}
+
+.redBackground {
+    background-color: #ff655d
+}
+
+.greenBackground {
+    background-color: #5ebb4f
+}
+
+a {
+    color: var(--color-2);
+}
+
+.form-btn {
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}

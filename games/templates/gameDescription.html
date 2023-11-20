@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ game.title }} Description</title>
+    <link rel="icon" type='image/x-icon' href="/static/images/logo.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+{% include 'include/sidebar.html' %}
+{% include 'include/header.html' %}
+
+<body>
+<div id="main">
+  <div class="gameDescription">
+    <img src="{{ game.image_url }}", alt="Game Image">
+    <h2>{{ game.title }}</h2>
+
+      {%  if wishlisted_status == False %}
+        <form class="button-form" method="post" action="{{ url_for('wishlist.add', game_id=game.game_id) }}">
+        {{ wishlist_form.hidden_tag() }}
+        {{ wishlist_form.submit_add(class_="form-btn greenBackground") }}
+        </form>
+    {% endif %}
+
+    {%  if wishlisted_status == True %}
+        <form class="button-form" method="post" action="{{ url_for('wishlist.remove', game_id=game.game_id) }}">
+        {{ wishlist_form.hidden_tag() }}
+        {{ wishlist_form.submit_remove(class_="form-btn redBackground") }}
+        </form>
+    {% endif %}
+
+    <h3>Genres</h3>
+    <ul>
+        {% for genre in game.genres %}
+            <a class="linkButton" href="{{ url_for('games.genre', genre_name=genre.genre_name) }}">{{  genre.genre_name }}</a>
+        {% endfor %}
+    </ul>
+  <h3>Description</h3>
+    <p>{{ game.description }}</p>
+  <h3>Price</h3>
+    <p>{{ 'Free' if game.price == 0 else '$' + game.price|string }}</p>
+  <h3>Publisher</h3>
+    <a class="linkButton" href="{{ url_for('games.publisher', publisher_name=game.publisher.publisher_name) }}">{{ game.publisher.publisher_name }}</a>
+  <h3>Release Date</h3>
+    <p>{{ game.release_date }}</p>
+  {% if game.website_url %}
+    <h3>Website URL</h3>
+  <a class="linkButton" target="_blank" href="{{  game.website_url }}">Visit</a>
+  {%  endif %}
+
+  {% if session.get('username') %}
+
+      <div class="formwrapper">
+          <h2 class="title">Write a review</h2>
+          <form method="POST" action="{{ url_for('review.add_review') }}">
+              {{ review_form.csrf_token }}
+
+              <div class="form-field">
+                  {{ review_form.game_id }}
+              </div>
+
+              <div>
+                  {{ review_form.rating.label }}
+                  {{ review_form.rating }}
+              </div>
+
+              <div>
+                  {{ review_form.comment.label }}
+                  {{ review_form.comment }}
+              </div>
+              {{ review_form.submit }}
+          </form>
+      </div>
+
+    {% endif %}
+
+
+      <div class="game_reviews">
+          <h3>Reviews:</h3>
+      {%  if average_rating != None %}
+            <p>Average Rating: {{ average_rating }}</p>
+        {% endif %}
+
+          {% for review in reviews %}
+            <a href="{{ url_for('profile.profile_for_username', username=review.user.username) }}" class="reviewCard">
+            <p class="username_link">{{ review.user.username }}</p>
+            <p>Rating: {{ review.rating }}</p>
+            <p>comment: {{ review.comment }}</p>
+            </a>
+          {% endfor %}
+      </div>
+  </div>
+</div>
+</body>
+</html>

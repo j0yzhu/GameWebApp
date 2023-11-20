@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+{% include 'include/sidebar.html' %}
+{% include 'include/header.html' %}
+
+<body>
+<div id="main">
+     <div class="user_profile">
+         <h2>User Profile: {{ user.username }}</h2>
+
+         <div class="wishContainer">
+             <h2 class="wish_heading">Wishlist:</h2>
+             {% for wish in wishlist %}
+            <a href="{{  url_for('games.game', game_id=wish.game.game_id) }}" class="gameCard">
+                <h2>{{ wish.game.title }}</h2>
+                <div class="imageContainer">
+                    <img src="{{ wish.game.image_url }}" alt="Game Image">
+                </div>
+                <h3>{{ 'Free' if wish.game.price == 0 else '$' + wish.game.price|string }}</h3>
+                <h3>{{ wish.game.release_date }}</h3>
+            </a>
+             {% endfor %}
+         </div>
+     {% include 'include/reviewContainer.html' %}
+    </div>
+</div>
+</body>
+</html>

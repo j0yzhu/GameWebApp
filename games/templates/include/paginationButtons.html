@@ -1,0 +1,9 @@
+<div class="paginationButtonContainer">
+{%  if page.prev_page_url %}
+    <a class="paginationButton" href="{{ page.prev_page_url }}">&laquo; Previous</a>
+{% endif %}
+
+{%  if page.next_page_url %}
+    <a class="paginationButton" href="{{ page.next_page_url }}">Next &raquo;</a>
+{% endif %}
+</div>

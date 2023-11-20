@@ -1,0 +1,31 @@
+<div id="sidebar">
+    <a href="{{  url_for('home.index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" id="logo"></a>
+    <a class="sidebarItem" href="{{  url_for('home.index') }}">Home</a>
+    <a class="sidebarItem" href={{  url_for('games.index') }}>Browse games</a>
+    <button class="sidebarDropDown">Browse genres</button>
+    <div class="dropdown-container">
+    {%  for genre in genres %}
+    <a class="sideBarDropDownItem" href="{{  url_for('games.genre', genre_name=genre.genre_name) }}">{{ genre.genre_name }}</a>
+
+    {%  endfor %}
+
+    </div>
+</div>
+
+<script>
+    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("sidebarDropDown");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>

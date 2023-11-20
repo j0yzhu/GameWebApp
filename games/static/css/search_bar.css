@@ -1,0 +1,163 @@
+.searchBarContainer {
+    width: 350px;
+    height: 50px;
+    margin: auto;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: var(--color-45);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    overflow: hidden;
+    transition: 0.3s;
+    text-align: center;
+    display: inline-block;
+}
+
+.searchBarContainer:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    background-color: var(--color-3);
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 10px;
+}
+
+.searchBar input[type="text"] {
+    flex: 1; /* Allows it to take as much width as possible */
+    height: 30px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-1);
+    color: var(--color-45);
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.searchBar input[type="text"]::placeholder {
+    color: rgba(0,0,0,0.3);
+}
+
+.searchBar input[type="submit"] {
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-2); /* For cohesion with the hover state of gameCard */
+    color: var(--color-1);
+    font-size: 16px;
+    cursor: pointer; /* To show it's clickable */
+    transition: 0.3s;
+}
+
+.searchBar input[type="submit"]:hover {
+    background-color: var(--color-1);
+    color: var(--color-3);
+}
+
+/* Dropdown (Select Element) Styling */
+.searchBar select {
+    flex: 1; /* Allows it to take as much width as possible */
+    height: 30px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    /*margin-right: 10px; Got rid of this as is makes box look funny*/
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-1);
+    color: var(--color-45);
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    appearance: none; /* For removing the default appearance */
+    cursor: pointer;
+}
+
+.searchBar select:hover {
+    background-color: var(--color-3);
+    color: var(--color-1);
+}
+
+/* Label Styling */
+.searchBar label {
+    font-size: 16px;
+    color: var(--color-1);
+    padding-right: 3px;
+}
+
+/* Checkbox Styling */
+.searchBar input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: var(--color-1);
+    border: 2px solid var(--color-45);
+    border-radius: 3px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.searchBar input[type="checkbox"]:checked {
+    background-color: var(--color-45);
+    border-color: var(--color-1);
+}
+
+.searchBar input[type="checkbox"]:checked:after {
+    display: block;
+    text-align: center;
+    color: var(--color-1);
+    font-size: 16px;
+}
+
+.searchBar input[type="checkbox"]:hover {
+    border-color: var(--color-3);
+}
+
+.reverseOrder {
+    display: flex;
+    align-items: center;
+}
+
+/* This removes the check and makes it gone*/
+#ascending {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    margin: 0;
+    border-radius: 10px;
+}
+
+#ascending + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--color-1);
+}
+
+#ascending + label::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+    vertical-align: middle;
+    border-radius: 3px;
+
+}
+
+#ascending:checked + label::after {
+    content: '✓';
+    background-color: #3495eb;
+    border-color: #3495eb;
+}

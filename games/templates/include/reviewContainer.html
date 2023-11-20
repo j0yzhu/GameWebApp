@@ -1,0 +1,18 @@
+<body>
+<div class="reviews_rating_container">
+    <h2 class="review_heading">Reviews:</h2>
+    <div class="reviews">
+    {% for review in reviews%}
+        <a href="{{  url_for('games.game', game_id=review.game.game_id) }}" class="gameCard">
+            <h2>{{ review.game.title }}</h2>
+            <div class="imageContainer">
+                <img src="{{ review.game.image_url }}" alt="Game Image">
+            </div>
+            <p>Rating: {{ review.rating }}</p>
+            <p>Review: {{ review.comment }}</p>
+        </a>
+    {% endfor %}
+        </div>
+    </div>
+</body>
+

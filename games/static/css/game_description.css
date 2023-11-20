@@ -1,0 +1,28 @@
+.reviewCard{
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    background-color: var(--color-45);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.username_link {
+    text-decoration: none; /* Remove default underline */
+    color: var(--color-1);
+}
+
+.username_link:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: var(--color-2);
+}
+
+
+
+

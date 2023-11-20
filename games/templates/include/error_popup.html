@@ -1,0 +1,14 @@
+{% if error_message %}
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <p class="error-message">{{ error_message }}</p>
+        </div>
+    </div>
+{% endif %}
+
+    <script>
+        function closeModal() {
+            document.getElementById('errorModal').style.display = 'none';
+        }
+    </script>
